@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DojoDDD.Api.DojoDDD.Domain;
+using DojoDDD.Api.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +26,14 @@ namespace DojoDDD.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddLogging();
+
+            services.AddSingleton<DataStore>();
+            services.AddTransient<IClienteRepositorio, ClienteRepositorio>();
+            services.AddTransient<IProdutoRepositorio, ProdutoRepositorio>();
+            services.AddTransient<IOrdemCompraServico, OrdemCompraServico>();
+            services.AddTransient<IOrdemCompraRepositorio, OrdemCompraRepositorio>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
