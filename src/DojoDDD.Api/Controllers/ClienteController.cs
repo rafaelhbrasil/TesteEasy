@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,10 +18,12 @@ namespace DojoDDD.Api.Controllers
     public class ClienteController : Controller
     {
         private readonly IClienteRepositorio _clienteRepositorio;
+        private readonly ICustomLogger _logger;
 
-        public ClienteController(IClienteRepositorio clienteRepositorio)
+        public ClienteController(IClienteRepositorio clienteRepositorio, ICustomLogger logger)
         {
             _clienteRepositorio = clienteRepositorio;
+            _logger = logger;
         }
 
         /// <summary>
@@ -43,7 +46,8 @@ namespace DojoDDD.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { message = ex });
+                _logger.Log($"Erro ao listar clientes. {ex}", EventLevel.Error);
+                throw; //deixar subir o erro para retornar 500
             }
         }
 
@@ -70,7 +74,8 @@ namespace DojoDDD.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { message = ex });
+                _logger.Log($"Erro ao obter cliente. {ex}", EventLevel.Error);
+                throw; //deixar subir o erro para retornar 500
             }
         }
     }

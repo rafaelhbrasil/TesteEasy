@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Diagnostics.Tracing;
 using System.Threading.Tasks;
 
 namespace DojoDDD.Api.Controllers
@@ -15,11 +16,15 @@ namespace DojoDDD.Api.Controllers
     {
         private readonly IOrdemCompraServico _ordemCompraServico;
         private readonly IOrdemCompraRepositorio _ordemCompraRepositorio;
+        private readonly ICustomLogger _logger;
 
-        public OrdemCompraController(IOrdemCompraServico ordemCompraServico, IOrdemCompraRepositorio ordemCompraRepositorio)
+        public OrdemCompraController(IOrdemCompraServico ordemCompraServico,
+                                     IOrdemCompraRepositorio ordemCompraRepositorio,
+                                     ICustomLogger logger)
         {
             _ordemCompraServico = ordemCompraServico;
             _ordemCompraRepositorio = ordemCompraRepositorio;
+            _logger = logger;
         }
 
         /// <summary>
@@ -44,7 +49,8 @@ namespace DojoDDD.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { message = ex.ToString() });
+                _logger.Log($"Erro ao obter ordem de compra. {ex}", EventLevel.Error);
+                throw; //deixar subir o erro para retornar 500
             }
         }
 
@@ -65,9 +71,15 @@ namespace DojoDDD.Api.Controllers
                 var id = await _ordemCompraServico.RegistrarOrdemCompra(ordemCompra.ClienteId, ordemCompra.ProdutoId, ordemCompra.QuantidadeSolicitada);
                 return Created(string.Empty, id);
             }
+            catch (InvalidOperationException ex)
+            {
+                _logger.Log($"Erro ao criar ordem de compra. {ex}", EventLevel.Warning);
+                return BadRequest(ex.Message);
+            }
             catch (Exception ex)
             {
-                return BadRequest(new { message = ex.ToString() });
+                _logger.Log($"Erro ao criar ordem de compra. {ex}", EventLevel.Error);
+                throw; //deixar subir o erro para retornar 500
             }
         }
     }

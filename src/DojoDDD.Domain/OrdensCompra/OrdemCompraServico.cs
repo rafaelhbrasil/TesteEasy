@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Tracing;
 using System.Threading.Tasks;
 
 namespace DojoDDD.Domain
@@ -74,7 +75,7 @@ namespace DojoDDD.Domain
             }
             catch (Exception ex)
             {
-                _logger.Log($"Erro ao atualizar status da Ordem de Compra {ordemDeCompraId} para {OrdemCompraStatus.EmAnalise}. {ex}");
+                _logger.Log($"Erro ao atualizar status da Ordem de Compra {ordemDeCompraId} para {OrdemCompraStatus.EmAnalise}. {ex}", EventLevel.Error);
                 throw;
             }
         }

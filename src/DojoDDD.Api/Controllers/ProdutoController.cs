@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,10 +17,12 @@ namespace DojoDDD.Api.Controllers
     public class ProdutoController : Controller
     {
         private readonly IProdutoRepositorio _produtoRepositorio;
+        private readonly ICustomLogger _logger;
 
-        public ProdutoController(IProdutoRepositorio produtoRepositorio)
+        public ProdutoController(IProdutoRepositorio produtoRepositorio, ICustomLogger logger)
         {
             _produtoRepositorio = produtoRepositorio;
+            _logger = logger;
         }
 
         /// <summary>
@@ -42,7 +45,8 @@ namespace DojoDDD.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { message = ex });
+                _logger.Log($"Erro ao listar produtos. {ex}", EventLevel.Error);
+                throw; //deixar subir o erro para retornar 500
             }
         }
 
@@ -69,7 +73,8 @@ namespace DojoDDD.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { message = ex });
+                _logger.Log($"Erro ao obter produto. {ex}", EventLevel.Error);
+                throw; //deixar subir o erro para retornar 500
             }
         }
     }
