@@ -1,4 +1,5 @@
-﻿using DojoDDD.Domain;
+﻿using DojoDDD.Api.Helpers;
+using DojoDDD.Domain;
 using DojoDDD.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +32,7 @@ namespace DojoDDD.Api
             services.AddTransient<IProdutoRepositorio, ProdutoRepositorio>();
             services.AddTransient<IOrdemCompraServico, OrdemCompraServico>();
             services.AddTransient<IOrdemCompraRepositorio, OrdemCompraRepositorio>();
+            services.AddSingleton<ICustomLogger, ConsoleLogger>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
