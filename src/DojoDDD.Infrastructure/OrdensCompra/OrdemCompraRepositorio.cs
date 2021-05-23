@@ -1,8 +1,8 @@
-﻿using DojoDDD.Api.Infrastructure;
+﻿using DojoDDD.Domain;
 using System;
 using System.Threading.Tasks;
 
-namespace DojoDDD.Api.DojoDDD.Domain
+namespace DojoDDD.Infrastructure
 {
     public class OrdemCompraRepositorio : IOrdemCompraRepositorio
     {

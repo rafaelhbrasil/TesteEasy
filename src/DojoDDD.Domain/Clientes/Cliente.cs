@@ -1,4 +1,4 @@
-﻿namespace DojoDDD.Api.DojoDDD.Domain
+﻿namespace DojoDDD.Domain
 {
     public class Cliente
     {

@@ -1,9 +1,9 @@
 ﻿using Bogus;
-using DojoDDD.Api.DojoDDD.Domain;
+using DojoDDD.Domain;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DojoDDD.Api.Infrastructure
+namespace DojoDDD.Infrastructure
 {
     public class DataStore
     {

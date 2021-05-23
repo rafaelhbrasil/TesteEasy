@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DojoDDD.Api.DojoDDD.Domain
+namespace DojoDDD.Domain
 {
     public interface IProdutoRepositorio
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DojoDDD.Api.DojoDDD.Domain
+namespace DojoDDD.Domain
 {
     public class ClienteServico
     {

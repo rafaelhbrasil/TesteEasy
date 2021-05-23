@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace DojoDDD.Api.DojoDDD.Domain
+namespace DojoDDD.Domain
 {
     public class OrdemCompraServico : IOrdemCompraServico
     {

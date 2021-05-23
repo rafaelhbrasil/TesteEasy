@@ -1,5 +1,5 @@
-﻿using DojoDDD.Api.DojoDDD.Domain;
-using DojoDDD.Api.Infrastructure;
+﻿using DojoDDD.Domain;
+using DojoDDD.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
