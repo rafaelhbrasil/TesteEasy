@@ -5,7 +5,8 @@ namespace DojoDDD.Domain
     public interface IOrdemCompraRepositorio
     {
         Task<string> RegistrarOrdemCompra(OrdemCompra ordemCompra);
-        Task<bool> AlterarOrdemCompra(string ordemId, OrdemCompraStatus novoOrdemCompraStatus);
-        Task<string> ConsultarPorId(string id);
+        Task<bool> AlterarOrdemCompra(OrdemCompra ordemCompra);
+        Task<bool> AlterarStatusOrdemCompra(string ordemId, OrdemCompraStatus novoOrdemCompraStatus);
+        Task<OrdemCompra> ConsultarPorId(string id);
     }
 }

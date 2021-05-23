@@ -19,7 +19,9 @@ namespace DojoDDD.Infrastructure
             return await Task.FromResult(cliente).ConfigureAwait(false);
         }
 
-        public async Task<IEnumerable<Cliente>> ConsultarTodosCliente() 
-            => await Task.FromResult(_dataStore.Clientes).ConfigureAwait(false);
+        public async Task<List<Cliente>> ConsultarTodosCliente()
+        {
+            return await Task.FromResult(_dataStore.Clientes).ConfigureAwait(false);
+        }
     }
 }

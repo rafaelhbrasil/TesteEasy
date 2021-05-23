@@ -13,7 +13,7 @@ namespace DojoDDD.Infrastructure
             _dataStore = dataStore;
         }
 
-        public async Task<IEnumerable<Produto>> Consultar()
+        public async Task<List<Produto>> Consultar()
         {
             return await Task.FromResult(_dataStore.Produtos).ConfigureAwait(false);
         }

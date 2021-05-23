@@ -55,12 +55,12 @@ namespace DojoDDD.Domain
         public async Task<bool> AlterarStatudOrdemDeCompraParaEmAnalise(string ordemDeCompraId)
         {
             var ordemDeCompra = await _ordemCompraRepositorio.ConsultarPorId(ordemDeCompraId).ConfigureAwait(false);
-            if (string.IsNullOrEmpty(ordemDeCompra))
+            if (ordemDeCompra == null)
                 throw new InvalidOperationException("");
 
             try
             {
-                await _ordemCompraRepositorio.AlterarOrdemCompra(ordemDeCompra, OrdemCompraStatus.EmAnalise).ConfigureAwait(false);
+                await _ordemCompraRepositorio.AlterarStatusOrdemCompra(ordemDeCompraId, OrdemCompraStatus.EmAnalise).ConfigureAwait(false);
             }
             catch (Exception ex)
             {

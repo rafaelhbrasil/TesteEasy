@@ -6,6 +6,6 @@ namespace DojoDDD.Domain
     public interface IClienteRepositorio
     {
         Task<Cliente> ConsultarPorId(string id);
-        Task<IEnumerable<Cliente>> ConsultarTodosCliente();
+        Task<List<Cliente>> ConsultarTodosCliente();
     }
 }
