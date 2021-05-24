@@ -1,8 +1,8 @@
-﻿using DojoDDD.Api.Infrastructure;
+﻿using DojoDDD.Domain;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DojoDDD.Api.DojoDDD.Domain
+namespace DojoDDD.Infrastructure
 {
     public class ProdutoRepositorio : IProdutoRepositorio
     {
@@ -13,7 +13,7 @@ namespace DojoDDD.Api.DojoDDD.Domain
             _dataStore = dataStore;
         }
 
-        public async Task<IEnumerable<Produto>> Consultar()
+        public async Task<List<Produto>> Consultar()
         {
             return await Task.FromResult(_dataStore.Produtos).ConfigureAwait(false);
         }

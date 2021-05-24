@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DojoDDD.Api.DojoDDD.Domain
+namespace DojoDDD.Domain
 {
     public class OrdemCompra
     {
@@ -9,7 +9,7 @@ namespace DojoDDD.Api.DojoDDD.Domain
             Status = OrdemCompraStatus.Solicitado;
         }
 
-        public string Id { get; } = Guid.NewGuid().ToString();
+        public string Id { get; set;  } = Guid.NewGuid().ToString();
 
         public DateTime DataOperacao { get; set; }
         public int ProdutoId { get; set; }

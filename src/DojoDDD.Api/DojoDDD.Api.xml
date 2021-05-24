@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DojoDDD.Api</name>
+    </assembly>
+    <members>
+        <member name="T:DojoDDD.Api.Controllers.ClienteController">
+            <summary>
+            Gerencia os clientes
+            </summary>
+        </member>
+        <member name="M:DojoDDD.Api.Controllers.ClienteController.Get">
+            <summary>
+            Retorna todos os clientes cadastrados
+            </summary>
+            <returns>Uma lista com todos os clientes</returns>
+            <response code="200">Clientes retornados com sucesso</response>
+        </member>
+        <member name="M:DojoDDD.Api.Controllers.ClienteController.GetById(System.String)">
+            <summary>
+            Retorna os dados de um(a) cliente específico(a)
+            </summary>
+            <param name="idCliente">O ID do(a) cliente a ser consultado(a)</param>
+            <returns>Os dados do(a) cliente</returns>
+            <response code="200">Cliente encontrado e retornado com sucesso</response>
+            <response code="404">Cliente não encontrado</response>
+        </member>
+        <member name="T:DojoDDD.Api.Controllers.OrdemCompraController">
+            <summary>
+            Gerencia as ordens de compra
+            </summary>
+        </member>
+        <member name="M:DojoDDD.Api.Controllers.OrdemCompraController.ConsultarPorId(System.String)">
+            <summary>
+            Consulta uma ordem de compra pelo seu ID
+            </summary>
+            <param name="idOrdemCompra">O ID da ordem de compra</param>
+            <returns>Os dados da Ordem de Compra</returns>
+            <response code="200">Ordem de compra encontrada e retornada com sucesso</response>
+            <response code="404">Ordem de compra não encontrada</response>
+        </member>
+        <member name="M:DojoDDD.Api.Controllers.OrdemCompraController.Post(DojoDDD.Domain.OrdemCompra)">
+            <summary>
+            Cria uma nova ordem de compra
+            </summary>
+            <param name="ordemCompra">Os dados da ordem de compra</param>
+            <returns>O ID da nova ordem de compra</returns>
+            <response code="201">Ordem de compra criada com sucesso</response>
+            <response code="400">Dados ou campos inválidos</response>
+        </member>
+        <member name="T:DojoDDD.Api.Controllers.ProdutoController">
+            <summary>
+            Gerencia os produtos
+            </summary>
+        </member>
+        <member name="M:DojoDDD.Api.Controllers.ProdutoController.Get">
+            <summary>
+            Lista todos os produtos disponíveis
+            </summary>
+            <returns></returns>
+            <response code="200">Produtos retornados com sucesso</response>
+        </member>
+        <member name="M:DojoDDD.Api.Controllers.ProdutoController.GetById(System.String)">
+            <summary>
+            Obtem os dados de um produto pelo seu ID
+            </summary>
+            <param name="id">O ID do produto</param>
+            <returns>Os dados do produto</returns>
+            <response code="200">Produtos retornados com sucesso</response>
+            <response code="404">Produto não encontrado</response>
+        </member>
+        <member name="T:DojoDDD.Api.Helpers.ConsoleLogger">
+            <summary>
+            Classe de log com saída para o console
+            </summary>
+        </member>
+        <member name="M:DojoDDD.Api.Helpers.ConsoleLogger.Log(System.String,System.Diagnostics.Tracing.EventLevel)">
+            <summary>
+            Registra no Log a mensagem com o nível especificado
+            </summary>
+            <param name="mensagem">A mensagem do log</param>
+            <param name="nivel">O nível da severidade do log</param>
+        </member>
+    </members>
+</doc>

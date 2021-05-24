@@ -1,8 +1,8 @@
-﻿using DojoDDD.Api.Infrastructure;
+﻿using DojoDDD.Domain;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DojoDDD.Api.DojoDDD.Domain
+namespace DojoDDD.Infrastructure
 {
     public class ClienteRepositorio : IClienteRepositorio
     {
@@ -19,7 +19,9 @@ namespace DojoDDD.Api.DojoDDD.Domain
             return await Task.FromResult(cliente).ConfigureAwait(false);
         }
 
-        public async Task<IEnumerable<Cliente>> ConsultarTodosCliente() 
-            => await Task.FromResult(_dataStore.Clientes).ConfigureAwait(false);
+        public async Task<List<Cliente>> ConsultarTodosCliente()
+        {
+            return await Task.FromResult(_dataStore.Clientes).ConfigureAwait(false);
+        }
     }
 }
