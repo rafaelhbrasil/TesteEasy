@@ -38,7 +38,8 @@ namespace DojoDDD.Domain
                 QuantidadeSolicitada = quantidadeCompra
             };
 
-            return await _ordemCompraRepositorio.RegistrarOrdemCompra(novaOrdemDeCompra).ConfigureAwait(false);
+            var id = await _ordemCompraRepositorio.RegistrarOrdemCompra(novaOrdemDeCompra).ConfigureAwait(false);
+            return id;
         }
 
         private async Task ValidarRequisitosOrdemCompra(string clienteId, Produto produto, int quantidadeCompra)

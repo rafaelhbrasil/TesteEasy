@@ -18,7 +18,7 @@
         </member>
         <member name="M:DojoDDD.Api.Controllers.ClienteController.GetById(System.String)">
             <summary>
-            Retorna os dados de um(a) cliente específico
+            Retorna os dados de um(a) cliente específico(a)
             </summary>
             <param name="idCliente">O ID do(a) cliente a ser consultado(a)</param>
             <returns>Os dados do(a) cliente</returns>
@@ -68,6 +68,18 @@
             <returns>Os dados do produto</returns>
             <response code="200">Produtos retornados com sucesso</response>
             <response code="404">Produto não encontrado</response>
+        </member>
+        <member name="T:DojoDDD.Api.Helpers.ConsoleLogger">
+            <summary>
+            Classe de log com saída para o console
+            </summary>
+        </member>
+        <member name="M:DojoDDD.Api.Helpers.ConsoleLogger.Log(System.String,System.Diagnostics.Tracing.EventLevel)">
+            <summary>
+            Registra no Log a mensagem com o nível especificado
+            </summary>
+            <param name="mensagem">A mensagem do log</param>
+            <param name="nivel">O nível da severidade do log</param>
         </member>
     </members>
 </doc>

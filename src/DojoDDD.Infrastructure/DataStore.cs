@@ -1,5 +1,6 @@
 ﻿using Bogus;
 using DojoDDD.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -32,7 +33,7 @@ namespace DojoDDD.Infrastructure
                 .RuleFor(s => s.Descricao, f => f.Commerce.ProductName())
                 .RuleFor(s => s.Estoque, 1000)
                 .RuleFor(s => s.ValorMinimoDeCompra, 500)
-                .RuleFor(s => s.PrecoUnitario, f => f.Commerce.Price(1, 100, 2))
+                .RuleFor(s => s.PrecoUnitario, f => Convert.ToDecimal(f.Commerce.Price(1, 100, 2)))
                 .Generate(5)
                 .ToList();
         }

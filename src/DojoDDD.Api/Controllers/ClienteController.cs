@@ -52,7 +52,7 @@ namespace DojoDDD.Api.Controllers
         }
 
         /// <summary>
-        /// Retorna os dados de um(a) cliente específico
+        /// Retorna os dados de um(a) cliente específico(a)
         /// </summary>
         /// <param name="idCliente">O ID do(a) cliente a ser consultado(a)</param>
         /// <returns>Os dados do(a) cliente</returns>
